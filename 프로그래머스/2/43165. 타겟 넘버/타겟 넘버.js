@@ -1,7 +1,7 @@
 function solution(numbers, target) {
   let count = 0;
 
-  function dfs(index, currentSum) {
+  const dfs = (index, currentSum) => {
     if (index === numbers.length) {
       if (currentSum === target) {
         count++;
