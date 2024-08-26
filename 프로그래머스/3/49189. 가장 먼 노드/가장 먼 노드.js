@@ -1,11 +1,14 @@
 function solution(n, edge) {
-  const dist = [1, 1]; // 노드 번호를 인덱스로 쓰기 위해 1번 인덱스까지 1로 초기화
- 
-  const graph = Array.from({ length: n + 1 }, () => []);
+  const graph = [];
+  const dist = [1, 1]; // 노드 번호를 그대로 인덱스로 사용하기 위해 1번 인덱스까지 1로 초기화 해줌
 
-  edge.forEach(([from, to]) => {
-    graph[from].push(to);
-    graph[to].push(from);
+  for (let i = 0; i < n + 1; i++) {
+    graph.push([]);
+  }
+
+  edge.forEach(([i, j]) => {
+    graph[i].push(j);
+    graph[j].push(i);
   });
 
   const queue = [1]; // 시작 노드 1을 넣어서 초기화
@@ -26,5 +29,6 @@ function solution(n, edge) {
   }
 
   const result = dist.filter((v) => v === Math.max(...dist));
+
   return result.length;
 }
