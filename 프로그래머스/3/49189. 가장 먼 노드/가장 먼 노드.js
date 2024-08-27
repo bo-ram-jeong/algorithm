@@ -1,6 +1,8 @@
 function solution(n, edge) {
   const graph = [];
-  const dist = [1, 1]; // 노드 번호를 그대로 인덱스로 사용하기 위해 1번 인덱스까지 1로 초기화 해줌
+
+  const dist = Array(n + 1).fill(0); // 모든 노드를 0으로 초기화
+  dist[1] = 1; // 1번 노드에서 출발하기 위해 초기화
 
   for (let i = 0; i < n + 1; i++) {
     graph.push([]);
